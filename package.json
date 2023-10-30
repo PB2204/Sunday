@@ -28,7 +28,7 @@
     "eslint-plugin-import": "^2.26.0"
   },
   "dependencies": {
-    "axios": "^0.27.2",
+    "axios": "^1.6.0",
     "case": "^1.6.3",
     "change": "^0.0.0",
     "change-case": "^4.1.2",
