@@ -1,11 +1,10 @@
-// submit form
 const submitForm = () => {
   const chatInput = $(".chat-input").val();
 
   $("main").append(`
-  <div class="chat-msg-box clint">
-    <p>${chatInput}</p>
-  </div>
+    <div class="chat-msg-box clint">
+      <p>${chatInput}</p>
+    </div>
   `);
 
   $.ajax({
@@ -23,7 +22,7 @@ const submitForm = () => {
             <div class="bounce3"></div>
           </div>
         </div>
-        `);
+      `);
       if ($(".chat-msg-box").length >= 10) {
         $([document.documentElement, document.body]).animate({
           scrollTop: $(".chat-msg-box.bot:last-child").offset().top,
@@ -58,7 +57,7 @@ window.onload = () => {
                 <div class="bounce3"></div>
               </div>
             </div>
-            `);
+          `);
         },
         success: (data) => {
           const response = (data.responseText).replace(/\n/gm, "</br>");
@@ -78,11 +77,19 @@ window.onload = () => {
     url: "./api/allquestions",
     success: (data) => {
       data.forEach((qus) => {
-        $(".questions.container").append(`
+        const questionDiv = $(`
         <div class="question">
           <p>${qus}</p>
         </div>
         `);
+
+        questionDiv.on("click", () => {
+          $(".chat-input").val(qus);
+
+          $("#chat-form").submit();
+        });
+
+        $(".questions.container").append(questionDiv);
       });
     },
   });
@@ -119,6 +126,7 @@ $("#chat-form").submit((e) => {
   submitForm();
 });
 
+// eslint-disable-next-line no-unused-vars, no-undef
 const typed = new Typed(".chat-input", {
   strings: [
     "how many mm in 1 cm",
