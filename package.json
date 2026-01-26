@@ -39,7 +39,7 @@
     "express": "^4.21.1",
     "express-rate-limit": "^6.11.2",
     "extract-values": "^0.1.2",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "lower-case": "^2.0.2",
     "morgan": "^1.10.0",
     "serve-static": "^1.15.0",
